@@ -13,8 +13,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.button.setOnClickListener {
-            val zarRandom = (1..6).random()
-            when (zarRandom) {
+            val diceLeftRandom = (1..6).random()
+            val diceRightRandom = (1..6).random()
+            when (diceLeftRandom) {
                 1 -> binding.imageView.setImageResource(R.drawable.dice_1)
                 2 -> binding.imageView.setImageResource(R.drawable.dice_2)
                 3 -> binding.imageView.setImageResource(R.drawable.dice_3)
@@ -24,7 +25,17 @@ class MainActivity : AppCompatActivity() {
                     binding.imageView.setImageResource(R.drawable.dice_6)
                 }
             }
-            binding.textView.text = zarRandom.toString()
+            when (diceRightRandom) {
+                1 -> binding.imageView2.setImageResource(R.drawable.dice_1)
+                2 -> binding.imageView2.setImageResource(R.drawable.dice_2)
+                3 -> binding.imageView2.setImageResource(R.drawable.dice_3)
+                4 -> binding.imageView2.setImageResource(R.drawable.dice_4)
+                5 -> binding.imageView2.setImageResource(R.drawable.dice_5)
+                else -> {
+                    binding.imageView2.setImageResource(R.drawable.dice_6)
+                }
+            }
+            binding.textView.text = ("Zarlar: $diceLeftRandom ve $diceRightRandom")
         }
     }
 }
